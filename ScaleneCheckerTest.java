@@ -2,9 +2,9 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-public class ScaleneCheckerTest {
+public class ScaleneTriangleTest {
 
-    ScaleneChecker triangle = new ScaleneChecker();
+    ScaleneTriangle triangle = new ScaleneTriangle();
 
     @Test
     public void testScaleneTriangle() {
@@ -20,4 +20,5 @@ public class ScaleneCheckerTest {
     public void testInvalidTriangle() {
         assertEquals("Does not form a Triangle", triangle.checkTriangle(1, 2, 3));
     }
+
 }
