@@ -1,6 +1,6 @@
  import java.util.Scanner;
 
-public class Main {
+public class IsoscelesTriangle{
 
     public static String checkTriangle(double a, double b, double c) {
         // Check if it forms a valid triangle
