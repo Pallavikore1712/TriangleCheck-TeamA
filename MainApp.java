@@ -4,46 +4,48 @@ public class MainApp {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        System.out.println("Enter three sides of a triangle:");
+        System.out.println("Enter the three sides of the triangle:");
         double a = sc.nextDouble();
         double b = sc.nextDouble();
         double c = sc.nextDouble();
 
-        // Create objects of all triangle modules
+        // Create objects for all triangle types
         EquilateralTriangle eq = new EquilateralTriangle();
         IsoscelesTriangle iso = new IsoscelesTriangle();
         ScaleneTriangle sca = new ScaleneTriangle();
         RightAngleTriangle rat = new RightAngleTriangle();
 
-        // Check if it’s a valid triangle at all
+        // First, check if the sides can form any valid triangle
         if (!isTriangle(a, b, c)) {
-            System.out.println("Does not form a valid triangle");
+            System.out.println("Does not form a Triangle");
         } 
-        // Check which specific type it is
-        else if (eq.isEquilateral(a, b, c)) {
-            System.out.println("Equilateral Triangle");
-        } 
-        else if (iso.isIsosceles(a, b, c)) {
-            System.out.println("Isosceles Triangle");
-        } 
-        else if (rat.isRightAngled(a, b, c)) {
+        // Then, check for right-angled
+        else if (RightAngleTriangle.isRightAngled(a, b, c)) {
             System.out.println("Right-Angled Triangle");
         } 
-        else if (sca.isScalene(a, b, c)) {
+        // Check for equilateral
+        else if (eq.checkTriangle(a, b, c).equals("Equilateral")) {
+            System.out.println("Equilateral Triangle");
+        } 
+        // Check for isosceles
+        else if (iso.checkTriangle(a, b, c).equals("Isosceles Triangle")) {
+            System.out.println("Isosceles Triangle");
+        } 
+        // Check for scalene
+        else if (sca.checkTriangle(a, b, c).equals("Scalene Triangle")) {
             System.out.println("Scalene Triangle");
         } 
         else {
-            System.out.println("Unknown Triangle Type");
+            System.out.println("Forms a triangle but not a specific type");
         }
 
         sc.close();
     }
 
-    // Helper method to validate triangle inequality
+    // Helper method to check valid triangle
     public static boolean isTriangle(double a, double b, double c) {
-        return (a > 0 && b > 0 && c > 0) && 
-               (a + b > c && a + c > b && b + c > a);
+        return a > 0 && b > 0 && c > 0 &&
+               (a + b > c) && (a + c > b) && (b + c > a);
     }
 }
 
