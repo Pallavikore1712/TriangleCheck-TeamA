@@ -1,5 +1,5 @@
 
-public class ScaleneChecker {
+public class ScaleneTriangle{
 
     public String checkTriangle(double a, double b, double c) {
 
@@ -13,4 +13,5 @@ public class ScaleneChecker {
             return "Forms a triangle but not Scalene";
         }
     }
+
 }
